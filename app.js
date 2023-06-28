@@ -33,6 +33,8 @@ app.use('/movies', require('./routes/movies'));
 app.use((req, res, next) => {
   next(new NotFoundError('Такого роута не существует'));
 });
+
+app.use(requestLogger);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorMiddleware);
