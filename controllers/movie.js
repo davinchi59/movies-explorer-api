@@ -16,7 +16,7 @@ module.exports.createMovie = (req, res, next) => {
     owner: userId,
   })
     .then((movie) => res.status(201).send(movie))
-    .catch((err) => next(err));
+    .catch(next);
 };
 
 module.exports.deleteMovie = (req, res, next) => {
@@ -24,5 +24,5 @@ module.exports.deleteMovie = (req, res, next) => {
 
   Movie.deleteOne({ _id })
     .then(() => res.status(200).send())
-    .catch((err) => next(err));
+    .catch(next);
 };
