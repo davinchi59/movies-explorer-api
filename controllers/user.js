@@ -38,7 +38,7 @@ module.exports.signUp = (req, res, next) => {
       password: hashedPassword,
       name,
     }))
-    .then((user) => res.status(200).send(user))
+    .then(() => res.status(200).send())
     .catch((err) => {
       if (err.code === 11000) return next(new IncorrectDataError('Введены неверные данные'));
       next(err);
